@@ -28,21 +28,15 @@ let d
 document.addEventListener('keydown', dir)
 
 function dir(e) {
-    switch (e.keyCode) {
-        case 37:
-            d = 'l'
-            break
-        case 38:
-            d = 'u'
-            break
-        case 39:
-            d = 'r'
-            break
-        case 40:
-            d = 'd'
-            break
+    if(e.keyCode == 37 && d != 'r'){
+        d = 'l'
+    } else if (e.keyCode == 38 && d != 'd'){
+        d = 'u'
+    } else if (e.keyCode == 39 && d != 'l'){
+        d = 'r'
+    } else if (e.keyCode == 40 && d != 'u'){
+        d = 'd'
     }
-    console.log(d)
 }
 
 function draw() {
@@ -78,4 +72,4 @@ function draw() {
     sn.unshift(nHead)
 }
 
-let game = setInterval(draw, 200)
+let game = setInterval(draw, 90)
